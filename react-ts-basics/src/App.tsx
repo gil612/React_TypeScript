@@ -20,8 +20,6 @@ export default function App() {
         id: Math.random(),
         title: goal,
         description: summary
-        // title: 'Learn React + TS',
-        // description: 'Learn it in depth!'
       };
       return [...prevGoals, newGoal]
     });
