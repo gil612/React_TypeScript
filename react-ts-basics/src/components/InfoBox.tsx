@@ -2,8 +2,7 @@ import { ReactNode } from "react";
 
 type HintBoxProps = {
     mode: 'hint';
-    children: ReactNode;.
-    //test
+    children: ReactNode;
 }
 
 type WarningBoxProps = {
