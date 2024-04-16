@@ -1,6 +1,6 @@
 import { type ReactNode, createContext, useContext, useReducer } from 'react';
 
-type Timer = {
+export type Timer = {
     name: string;
     duration: number;
 }
@@ -33,7 +33,7 @@ export function useTimersContext() {
     return timersCtx;
 }
 
-type TimersContextProvidersProps = {
+type TimersContextProviderProps = {
     children: ReactNode;
 };
 
@@ -58,13 +58,13 @@ function timersReducer(state: TimersState, action:Action): TimersState {
         return {
             ...state,
             isRunning: true
-        }
+        };
     }
     if (action.type === 'STOP_TIMERS') {
         return {
             ...state,
             isRunning: false
-        }
+        };
     }
     if (action.type === 'ADD_TIMER') {
         return {
@@ -73,7 +73,7 @@ function timersReducer(state: TimersState, action:Action): TimersState {
                 ...state.timers,
                 {
                     name: action.payload.name,
-                    duration :action.payload.duration,
+                    duration: action.payload.duration,
                 },
             ],
         };
@@ -82,12 +82,14 @@ function timersReducer(state: TimersState, action:Action): TimersState {
     return state;
 }
 
-export default function TimersContextProvider({children}: TimersContextProvidersProps) {
+export default function TimersContextProvider({
+    children,
+}: TimersContextProvidersProps) {
     const [timersState, dispatch] = useReducer(timersReducer, initialState)
 
     const ctx: TimersContextValue = {
         timers: timersState.timers,
-        isRunning: true,
+        isRunning: timersState.isRunning,
         addTimer(timerData) {
             dispatch({ type: 'ADD_TIMER', payload: timerData });
         },
@@ -98,5 +100,7 @@ export default function TimersContextProvider({children}: TimersContextProviders
             dispatch({ type: 'STOP_TIMERS' });
         },
     };
-    return <TimersContext.Provider value={ctx}>{children}</TimersContext.Provider>;
+    return (
+    <TimersContext.Provider value={ctx}>{children}</TimersContext.Provider>
+    );
 };
