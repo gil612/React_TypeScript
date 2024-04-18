@@ -1,0 +1,38 @@
+[
+    {
+        "userId": 1,
+        "id": 1,
+        "name":"SummitSecure Bank",
+        "revenue": 500
+    },
+    {
+        "userId": 1,
+        "id": 2,
+        "name": "orizonEdge Bank",
+        "revenue": 250
+    },
+    {
+        "userId": 1,
+        "id": 3,
+        "name": "EvergreenTrust Bank",
+        "revenue": 685
+    },
+    {
+        "userId": 1,
+        "id": 4,
+        "name": "NovaNest Bank",
+        "revenue": 120
+    },
+    {
+        "userId": 1,
+        "id": 5,
+        "name": "CascadeCapital Bank",
+        "revenue": 710
+    },
+    {
+        "userId": 1,
+        "id": 6,
+        "name": "ApexAlliance Bank",
+        "revenue": 370
+    }
+]
